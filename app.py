@@ -77,6 +77,9 @@ with visualization:
         x=x_axis, y=y_axis
     ))
 
+
 # st.write(
 #     'Diagram diatas memperlihatkan sebaran data antara Character Strength dalam VIA-IS-120 dengan parameter DASS_21 yang menunju'
 # )
+
+st.header('Summary')
