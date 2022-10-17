@@ -47,6 +47,8 @@ with gender_seg:
     
 st.write('Data ini diambil dengan cara penyebaran kuesioner yang berisikan beberapa materi antara lain: Values in Action Inventory of Strengths-120 (VIA-IS-120) yang digunakan untuk mengukur kekuatan karakter (Character Strength); Depression, Anxiety, and Stress Scales-21 (DASS-21) yang digunakan untuk mengukur tingkat stress, depresi dan kecemasan yang dirasakan selama masa pandemi. Semakin tinggi skor mengindikasikan semakin tinggi tingkat stress yang dialami; General Health Questionnaire-12 (GHQ-12) digunakan untuk mengukur kesehatan psikologis secara umum. Semakin tinggi skor mengindikasikan semakin buruk kesehatan mental; dan yang terakhir, Self-efficacy measure for Covid-19 (SEC), digunakan untuk mengukur kepercayaan terhadap diri sendiri untuk mengatasi hal-hal dalam kehidupan sehari-hari selama masa pandemi. Semakin tinggi skor mengindikasikan semakin tinggi rasa percaya diri yang dimiliki.')
 
+# x_factor = ['DASS_21', 'GHQ_12', 'SEC']
+# y_factor = ['Appreciation_of_beauty', 'Bravery', 'Creativity', 'Curiosity', 'Fairness', 'Forgiveness', 'Gratitude', 'Honesty', 'Hope', 'Humilty', 'Humor', 'Judgment', 'Kindness', 'Leadership', 'Love', 'Love_of_learning', 'Perseverance', 'Perspective', 'Prudence', 'Self_regulation', 'Social_intelligence', 'Spirituality', 'Teamwork', 'Zest' ,'DASS_21', 'GHQ_12', 'SEC']
 
 st.title('Korelasi antar komponen')
 option, visualization = st.columns(2)
@@ -60,9 +62,21 @@ with option:
         "Y Axis",
         ('Appreciation_of_beauty', 'Bravery', 'Creativity', 'Curiosity', 'Fairness', 'Forgiveness', 'Gratitude', 'Honesty', 'Hope', 'Humilty', 'Humor', 'Judgment', 'Kindness', 'Leadership', 'Love', 'Love_of_learning', 'Perseverance', 'Perspective', 'Prudence', 'Self_regulation', 'Social_intelligence', 'Spirituality', 'Teamwork', 'Zest' ,'DASS_21', 'GHQ_12', 'SEC')
     )
-    
+
+# a = alt.Chart(df).mark_circle().encode
+# for i in y_factor:
+#     alt.Chart(df).mark_circle().encode(
+#         x='DASS_21', y=i
+#     )
 with visualization:
-    st.subheader(x_axis+' - '+y_axis)
-    st.altair_chart(alt.Chart(df).mark_square().encode(
-        x=x_axis, y=y_axis, color=x_axis
+    st.subheader(y_axis)
+    st.altair_chart(
+        alt.Chart(df)
+        .mark_square(
+        ).encode(
+        x=x_axis, y=y_axis
     ))
+
+# st.write(
+#     'Diagram diatas memperlihatkan sebaran data antara Character Strength dalam VIA-IS-120 dengan parameter DASS_21 yang menunju'
+# )
