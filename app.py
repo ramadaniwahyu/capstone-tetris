@@ -83,10 +83,9 @@ with visualization:
 # )
 
 st.header('Summary')
-st.write(
-    'Diagram diatas memperlihatkan korelasi samar antara Character Strength dalam VIA-IS-120 dengan DASS-21, GHQ-12, dan SEC.'
-    
-    'Terdapat korelasi negatif antara tekanan psikologis yang dirasakan, psikologis kesehatan secara umum dengan Kekuatan Karakter pada saat pandemi. Semakin rendah tekanan psikologis dan psikologis kesehatan yang dirasakan, maka kekuatan karakter yang dimiliki akan semakin tinggi.'
-    
-    'Sedangkan korelasi positif muncul antara Efikasi Diri selama pandemi dengan kekuatan karakter secara umum. Semakin tinggi efikasi diri, maka semakin baik karakter yang dimiliki.'
-)
+st.markdown(
+            """
+Kesimpulan yang dapat diambil dari diagram diatas adalah sebagai berikut:
+- Terdapat korelasi negatif antara tekanan psikologis yang dirasakan, psikologis kesehatan secara umum dengan Kekuatan Karakter pada saat pandemi. Semakin rendah tekanan psikologis dan psikologis kesehatan yang dirasakan, maka kekuatan karakter yang dimiliki akan semakin tinggi
+- Sedangkan korelasi positif muncul antara Efikasi Diri selama pandemi dengan kekuatan karakter secara umum. Semakin tinggi efikasi diri, maka semakin baik karakter yang dimiliki.
+""")
