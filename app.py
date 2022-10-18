@@ -1,6 +1,8 @@
 import altair as alt
 import streamlit as st
 import pandas as pd
+import numpy as np
+import seaborn as sns
 
 st.set_page_config(layout="wide")
 
@@ -11,16 +13,13 @@ df['Sons'] = df['Sons'].astype(str)
 
 header="""<style>
 .header {
-position: top;
-background-image: url('header.jpg');
-background-position: center; /* Center the image */
-background-repeat: no-repeat; /* Do not repeat the image */
+background-image: url('https://ramadani.my.id/capstone-tetris/header.jpg');
 background-size: cover; /* Resize the background image to cover the entire container */
 text-align: center;
 }
 </style>
 <div class="header">
-
+<img src='https://ramadani.my.id/capstone-tetris/header.jpg'/>
 </div>
 """
 st.markdown(header,unsafe_allow_html=True)
@@ -77,28 +76,57 @@ st.header('Sebaran data')
 option, visualization = st.columns(2)
 with option:
     st.subheader('Komponen')
-    x_axis = st.selectbox(
-        "X Axis",
-        ('DASS_21', 'GHQ_12', 'SEC')
-    )
     y_axis = st.selectbox(
-        "Y Axis",
+        "Pilih komponen",
         ('Appreciation_of_beauty', 'Bravery', 'Creativity', 'Curiosity', 'Fairness', 'Forgiveness', 'Gratitude', 'Honesty', 'Hope', 'Humilty', 'Humor', 'Judgment', 'Kindness', 'Leadership', 'Love', 'Love_of_learning', 'Perseverance', 'Perspective', 'Prudence', 'Self_regulation', 'Social_intelligence', 'Spirituality', 'Teamwork', 'Zest' ,'DASS_21', 'GHQ_12', 'SEC')
     )
+    
+    
+    # legend="""
+    # <style>
+    #     .dot {
+    #     height: 25px;
+    #     width: 25px;
+    #     border-radius: 50%;
+    #     display: inline-block;
+    #     margin: auto;
+    #     }
+    # </style>
+    # <div>
+    #     <span class="dot" style='background-color: blue'></span>DASS_21&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    #     <span class="dot" style='background-color: red'></span>GHQ_12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    #     <span class="dot" style='background-color: yellow'></span>SEC
+    # </div>
+    # """
+    # st.markdown(legend, unsafe_allow_html=True)
 
-# a = alt.Chart(df).mark_circle().encode
-# for i in y_factor:
-#     alt.Chart(df).mark_circle().encode(
-#         x='DASS_21', y=i
-#     )
+# base = alt.Chart(df.reset_index()).encode(y=y_axis)
+
+# c = alt.layer(
+#     base.mark_point(color='blue').encode(x='DASS_21'),
+#     base.mark_circle(color='red').encode(x='GHQ_12'),
+#     base.mark_square(color='yellow').encode(x='SEC')
+# )
 with visualization:
     st.subheader(y_axis)
     st.altair_chart(
-        alt.Chart(df)
-        .mark_square(
-        ).encode(
-        x=x_axis, y=y_axis
-    ))
+        alt.Chart(df.reset_index())
+        .mark_point(color='blue')
+        .encode(y=y_axis, x='DASS_21'),
+        use_container_width=False
+    )
+    st.altair_chart(
+        alt.Chart(df.reset_index())
+        .mark_circle(color='red')
+        .encode(y=y_axis, x='GHQ_12'),
+        use_container_width=False
+    )
+    st.altair_chart(
+        alt.Chart(df.reset_index())
+        .mark_square(color='yellow')
+        .encode(y=y_axis, x='SEC'),
+        use_container_width=False
+    )
 
 
 # st.write(
@@ -116,7 +144,7 @@ Kesimpulan yang dapat diambil dari diagram diatas adalah sebagai berikut:
 st.header('Jadi, bagaimana dengan kondisi di Indonesia pada khususnya?')
 st.write('Sampai saat ini belum ada studi ilmiah tentang ini.')
 
-# st.image('footer.jpg')
+st.image('https://ramadani.my.id/capstone-tetris/footer.jpg')
 
 footer="""<style>
 a:link , a:visited{
