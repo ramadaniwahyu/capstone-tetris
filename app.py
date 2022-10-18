@@ -9,8 +9,28 @@ df = pd.read_csv('dataset.csv')
 df['Participant'] = df['Participant'].astype(str)
 df['Sons'] = df['Sons'].astype(str)
 
+header="""<style>
+.header {
+position: top;
+background-image: url('header.jpg');
+background-position: center; /* Center the image */
+background-repeat: no-repeat; /* Do not repeat the image */
+background-size: cover; /* Resize the background image to cover the entire container */
+text-align: center;
+}
+</style>
+<div class="header">
+
+</div>
+"""
+st.markdown(header,unsafe_allow_html=True)
+
 st.title('Manusia dan Pandemi Covid-19')
-st.write('[Dicky Wahyu Ramadani](https://wa.me/628113502605) - TETRIS PROA - Oktober 2022')
+col1, mid, col2 = st.columns([1,1,40])
+with col1:
+    st.image('profpic.png', width=50)
+with col2:
+    st.write('[Dicky Wahyu Ramadani](https://wa.me/628113502605) - TETRIS PROA - Oktober 2022')
 
 st.header('Pendahuluan')
 st.write(
@@ -43,9 +63,15 @@ with gender_seg:
     st.bar_chart(
         df.groupby('Gender').nunique()['Participant']
     )
-    
-st.write('Data ini diambil dengan cara penyebaran kuesioner yang berisikan beberapa materi antara lain: Values in Action Inventory of Strengths-120 (VIA-IS-120) yang digunakan untuk mengukur kekuatan karakter (Character Strength); Depression, Anxiety, and Stress Scales-21 (DASS-21) yang digunakan untuk mengukur tingkat stress, depresi dan kecemasan yang dirasakan selama masa pandemi. Semakin tinggi skor mengindikasikan semakin tinggi tingkat stress yang dialami; General Health Questionnaire-12 (GHQ-12) digunakan untuk mengukur kesehatan psikologis secara umum. Semakin tinggi skor mengindikasikan semakin buruk kesehatan mental; dan yang terakhir, Self-efficacy measure for Covid-19 (SEC), digunakan untuk mengukur kepercayaan terhadap diri sendiri untuk mengatasi hal-hal dalam kehidupan sehari-hari selama masa pandemi. Semakin tinggi skor mengindikasikan semakin tinggi rasa percaya diri yang dimiliki.')
 
+st.markdown(
+    """Data ini diambil dengan cara penyebaran kuesioner yang berisikan beberapa materi antara lain:
+-   Values in Action Inventory of Strengths-120 (VIA-IS-120) yang digunakan untuk mengukur kekuatan karakter (Character Strength);
+-   Depression, Anxiety, and Stress Scales-21 (DASS-21) yang digunakan untuk mengukur tingkat stress, depresi dan kecemasan yang dirasakan selama masa pandemi. Semakin tinggi skor mengindikasikan semakin tinggi tingkat stress yang dialami;
+-   General Health Questionnaire-12 (GHQ-12) digunakan untuk mengukur kesehatan psikologis secara umum. Semakin tinggi skor mengindikasikan semakin buruk kesehatan mental;
+-   dan yang terakhir, Self-efficacy measure for Covid-19 (SEC), digunakan untuk mengukur kepercayaan terhadap diri sendiri untuk mengatasi hal-hal dalam kehidupan sehari-hari selama masa pandemi. Semakin tinggi skor mengindikasikan semakin tinggi rasa percaya diri yang dimiliki.
+    """
+)
 
 st.header('Sebaran data')
 option, visualization = st.columns(2)
@@ -89,3 +115,34 @@ Kesimpulan yang dapat diambil dari diagram diatas adalah sebagai berikut:
 
 st.header('Jadi, bagaimana dengan kondisi di Indonesia pada khususnya?')
 st.write('Sampai saat ini belum ada studi ilmiah tentang ini.')
+
+# st.image('footer.jpg')
+
+footer="""<style>
+a:link , a:visited{
+color: #9EA25D;
+background-color: transparent;
+text-decoration: none;
+}
+
+a:hover,  a:active {
+color: black;
+background-color: transparent;
+text-decoration: none;
+}
+
+.footer {
+position: fixed;
+left: 0;
+bottom: 0;
+width: 100%;
+background-color: #615DA2;
+color: #9EA25D;
+text-align: center;
+}
+</style>
+<div class="footer">
+<p>Developed by <a style='display: block; text-align: center;' href="https://ramadani.my.id/" target="_blank">Dicky Wahyu Ramadani</a></p>
+</div>
+"""
+st.markdown(footer,unsafe_allow_html=True)
