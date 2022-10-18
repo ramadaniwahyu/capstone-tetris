@@ -138,10 +138,11 @@ st.markdown(
 Kesimpulan yang dapat diambil dari diagram diatas adalah sebagai berikut:
 - Terdapat korelasi samar negatif antara tekanan psikologis yang dirasakan, psikologis kesehatan secara umum dengan Kekuatan Karakter pada saat pandemi. Semakin rendah tekanan psikologis dan psikologis kesehatan yang dirasakan, maka kekuatan karakter yang dimiliki akan semakin tinggi
 - Sedangkan korelasi samar positif muncul antara Efikasi Diri selama pandemi dengan kekuatan karakter secara umum. Semakin tinggi efikasi diri, maka semakin baik karakter yang dimiliki.
+-   Korelasi samar ini mengindikasikan bahwa tekanan psikologis, psikologis kesehatan secara umum, dan efikasi diri ini tidak memiliki pengaruh yang kuat terhadap perubahan Kekuatan Karakter.
 """)
 
 st.header('Jadi, bagaimana dengan kondisi di Indonesia pada khususnya?')
-st.write('Sampai saat ini belum ada studi ilmiah tentang ini.')
+st.write('Sejauh ini belum ada penelitian tentang hal ini.')
 
 st.image('https://ramadani.my.id/capstone-tetris/footer.jpg')
 
