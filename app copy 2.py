@@ -50,19 +50,19 @@ with gender_seg:
 st.write('Data ini diambil dengan cara penyebaran kuesioner yang berisikan beberapa materi antara lain: Values in Action Inventory of Strengths-120 (VIA-IS-120) yang digunakan untuk mengukur kekuatan karakter (Character Strength); Depression, Anxiety, and Stress Scales-21 (DASS-21) yang digunakan untuk mengukur tingkat stress, depresi dan kecemasan yang dirasakan selama masa pandemi. Semakin tinggi skor mengindikasikan semakin tinggi tingkat stress yang dialami; General Health Questionnaire-12 (GHQ-12) digunakan untuk mengukur kesehatan psikologis secara umum. Semakin tinggi skor mengindikasikan semakin buruk kesehatan mental; dan yang terakhir, Self-efficacy measure for Covid-19 (SEC), digunakan untuk mengukur kepercayaan terhadap diri sendiri untuk mengatasi hal-hal dalam kehidupan sehari-hari selama masa pandemi. Semakin tinggi skor mengindikasikan semakin tinggi rasa percaya diri yang dimiliki.')
 
 
-# # x_factor = ['DASS_21', 'GHQ_12', 'SEC']
-# # y_factor = ['Appreciation_of_beauty', 'Bravery', 'Creativity', 'Curiosity', 'Fairness', 'Forgiveness', 'Gratitude', 'Honesty', 'Hope', 'Humilty', 'Humor', 'Judgment', 'Kindness', 'Leadership', 'Love', 'Love_of_learning', 'Perseverance', 'Perspective', 'Prudence', 'Self_regulation', 'Social_intelligence', 'Spirituality', 'Teamwork', 'Zest']
+x_factor = ['DASS_21', 'GHQ_12', 'SEC']
+y_factor = ['Appreciation_of_beauty', 'Bravery', 'Creativity', 'Curiosity', 'Fairness', 'Forgiveness', 'Gratitude', 'Honesty', 'Hope', 'Humilty', 'Humor', 'Judgment', 'Kindness', 'Leadership', 'Love', 'Love_of_learning', 'Perseverance', 'Perspective', 'Prudence', 'Self_regulation', 'Social_intelligence', 'Spirituality', 'Teamwork', 'Zest']
 
-# st.header('Korelasi antar komponen')
-# correlation, heatmap = st.columns(2)
-# with correlation:
-#     dc = df.corr()
-#     st.table(dc)
+st.header('Korelasi antar komponen')
+correlation, heatmap = st.columns(2)
+with correlation:
+    dc = df.corr()
+    st.table(dc)
     
-# with heatmap:
-#     fig, ax = plt.subplots()
-#     sns.heatmap(dc, ax=ax, cmap='coolwarm')
-#     st.write(fig)
+with heatmap:
+    fig, ax = plt.subplots()
+    sns.heatmap(dc, ax=ax, cmap='coolwarm')
+    st.write(fig)
 
 # x_factor = ['DASS_21', 'GHQ_12', 'SEC']
 # y_factor = ['Appreciation_of_beauty', 'Bravery', 'Creativity', 'Curiosity', 'Fairness', 'Forgiveness', 'Gratitude', 'Honesty', 'Hope', 'Humilty', 'Humor', 'Judgment', 'Kindness', 'Leadership', 'Love', 'Love_of_learning', 'Perseverance', 'Perspective', 'Prudence', 'Self_regulation', 'Social_intelligence', 'Spirituality', 'Teamwork', 'Zest']
