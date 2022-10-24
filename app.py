@@ -149,10 +149,10 @@ with via8:
                  </div>
                  """, unsafe_allow_html=True)
 
+st.subheader('Komponen')
 option, set1 = st.columns(2)
 visualization1, visualization2, visualization3 = st.columns(3)
 with option:
-    st.subheader('Komponen')
     y_axis = st.selectbox(
         "Pilih komponen",
         ('Appreciation_of_beauty', 'Bravery', 'Creativity', 'Curiosity', 'Fairness', 'Forgiveness', 'Gratitude', 'Honesty', 'Hope', 'Humilty', 'Humor', 'Judgment', 'Kindness', 'Leadership', 'Love', 'Love_of_learning', 'Perseverance', 'Perspective', 'Prudence', 'Self_regulation', 'Social_intelligence', 'Spirituality', 'Teamwork', 'Zest' ,'DASS_21', 'GHQ_12', 'SEC')
