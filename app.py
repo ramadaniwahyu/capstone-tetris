@@ -196,7 +196,7 @@ Kesimpulan yang dapat diambil dari diagram diatas adalah sebagai berikut:
 - Terdapat korelasi samar negatif antara tekanan psikologis yang dirasakan, psikologis kesehatan secara umum dengan Kekuatan Karakter pada saat pandemi. Semakin rendah tekanan psikologis dan psikologis kesehatan yang dirasakan, maka kekuatan karakter yang dimiliki akan semakin tinggi
 - Sedangkan korelasi samar positif muncul antara Efikasi Diri selama pandemi dengan kekuatan karakter secara umum. Semakin tinggi efikasi diri, maka semakin baik karakter yang dimiliki.
 -   Korelasi samar ini mengindikasikan bahwa tekanan psikologis, psikologis kesehatan secara umum, dan efikasi diri ini tidak memiliki pengaruh yang kuat terhadap perubahan Kekuatan Karakter.
--   Zest, Hope, Perseverance, Gratitude, Curiosity, Love, Spirituality, dan Self Regulation merupakan karakter yang perlu dikembangkan lebih lanjut dalam menjalani masa pandemi ini.
+-   Zest, Hope, Perseverance, Gratitude, Curiosity, Love, Spirituality, dan Self Regulation merupakan karakter yang perlu dikembangkan karena karakter tersebut dapat memberikan kontribusi positif untuk menjalani masa pandemi ini.
 """)
 
 
