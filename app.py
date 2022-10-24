@@ -10,6 +10,14 @@ df = pd.read_csv('dataset.csv')
 df['Participant'] = df['Participant'].astype(str)
 df['Sons'] = df['Sons'].astype(str)
 
+# page_title="""
+# <head>
+# <title>Manusia dan Covid-19 | Dicky Wahyu Ramadani </title>
+# </head>
+# """
+
+# st.markdown(page_title)
+
 header="""<style>
 .header {
 background-image: url('https://ramadani.my.id/capstone-tetris/header.jpg');
@@ -18,7 +26,8 @@ text-align: center;
 }
 </style>
 <div class="header">
-<img src='https://ramadani.my.id/capstone-tetris/header.jpg'/>
+<br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br />
 </div>
 """
 st.markdown(header,unsafe_allow_html=True)
@@ -64,7 +73,7 @@ with gender_seg:
 
 st.markdown(
     """Data ini diambil dengan cara penyebaran kuesioner yang berisikan beberapa materi antara lain:
--   Values in Action Inventory of Strengths-120 (VIA-IS-120) yang digunakan untuk mengukur kekuatan karakter (Character Strength);
+-   Values in Action Inventory of Strengths-120 (VIA-IS-120) yang digunakan untuk mengukur kekuatan karakter (Character Strength). Bisa dibaca lebih lanjut [disini](https://www.viacharacter.org/character-strengths);
 -   Depression, Anxiety, and Stress Scales-21 (DASS-21) yang digunakan untuk mengukur tingkat stress, depresi dan kecemasan yang dirasakan selama masa pandemi. Semakin tinggi skor mengindikasikan semakin tinggi tingkat stress yang dialami;
 -   General Health Questionnaire-12 (GHQ-12) digunakan untuk mengukur kesehatan psikologis secara umum. Semakin tinggi skor mengindikasikan semakin buruk kesehatan mental;
 -   dan yang terakhir, Self-efficacy measure for Covid-19 (SEC), digunakan untuk mengukur kepercayaan terhadap diri sendiri untuk mengatasi hal-hal dalam kehidupan sehari-hari selama masa pandemi. Semakin tinggi skor mengindikasikan semakin tinggi rasa percaya diri yang dimiliki.
@@ -72,7 +81,9 @@ st.markdown(
 )
 
 st.header('Sebaran data')
-option, visualization = st.columns(2)
+axis = ['Appreciation_of_beauty', 'Bravery', 'Creativity', 'Curiosity', 'Fairness', 'Forgiveness', 'Gratitude', 'Honesty', 'Hope', 'Humilty', 'Humor', 'Judgment', 'Kindness', 'Leadership', 'Love', 'Love_of_learning', 'Perseverance', 'Perspective', 'Prudence', 'Self_regulation', 'Social_intelligence', 'Spirituality', 'Teamwork', 'Zest' ]
+option, set1 = st.columns(2)
+visualization1, visualization2, visualization3 = st.columns(3)
 with option:
     st.subheader('Komponen')
     y_axis = st.selectbox(
@@ -106,20 +117,31 @@ with option:
 #     base.mark_circle(color='red').encode(x='GHQ_12'),
 #     base.mark_square(color='yellow').encode(x='SEC')
 # )
-with visualization:
-    st.subheader(y_axis)
+
+with set1:
+    st.write('Silahkan perhatikan koefisien korelasi dibawah ini')
+    dd = df.corr().loc[y_axis, ['DASS_21', 'GHQ_12', 'SEC']]
+    st.table(dd)
+with visualization1:
+    st.markdown("<h3 style='text-align: center; color: blue;'>DASS_21</h3>", unsafe_allow_html=True)
     st.altair_chart(
         alt.Chart(df.reset_index())
         .mark_point(color='blue')
         .encode(y=y_axis, x='DASS_21'),
         use_container_width=False
     )
+
+with visualization2:
+    st.markdown("<h3 style='text-align: center; color: red;'>GHQ_12</h3>", unsafe_allow_html=True)
     st.altair_chart(
         alt.Chart(df.reset_index())
         .mark_circle(color='red')
         .encode(y=y_axis, x='GHQ_12'),
         use_container_width=False
     )
+    
+with visualization3:
+    st.markdown("<h3 style='text-align: center; color: yellow;'>SEC</h3>", unsafe_allow_html=True)
     st.altair_chart(
         alt.Chart(df.reset_index())
         .mark_square(color='yellow')
@@ -127,7 +149,9 @@ with visualization:
         use_container_width=False
     )
 
-
+st.subheader('Tabel Korelasi')
+dd = df.corr().loc[axis, ['DASS_21', 'GHQ_12', 'SEC']]
+st.table(dd)
 # st.write(
 #     'Diagram diatas memperlihatkan sebaran data antara Character Strength dalam VIA-IS-120 dengan parameter DASS_21 yang menunju'
 # )
@@ -144,7 +168,7 @@ Kesimpulan yang dapat diambil dari diagram diatas adalah sebagai berikut:
 st.header('Jadi, bagaimana dengan kondisi di Indonesia pada khususnya?')
 st.write('Sejauh ini belum ada penelitian tentang hal ini.')
 
-st.image('https://ramadani.my.id/capstone-tetris/footer.jpg')
+# st.image('https://ramadani.my.id/capstone-tetris/footer.jpg')
 
 footer="""<style>
 a:link , a:visited{
