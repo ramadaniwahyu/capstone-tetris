@@ -81,7 +81,74 @@ st.markdown(
 )
 
 st.header('Sebaran data')
+st.subheader('Korelasi Antar Komponen')
 axis = ['Appreciation_of_beauty', 'Bravery', 'Creativity', 'Curiosity', 'Fairness', 'Forgiveness', 'Gratitude', 'Honesty', 'Hope', 'Humilty', 'Humor', 'Judgment', 'Kindness', 'Leadership', 'Love', 'Love_of_learning', 'Perseverance', 'Perspective', 'Prudence', 'Self_regulation', 'Social_intelligence', 'Spirituality', 'Teamwork', 'Zest' ]
+dd = df.corr().loc[axis, ['DASS_21', 'GHQ_12', 'SEC']]
+st.line_chart(dd)
+
+st.markdown("""Dari diagram diatas dapat terlihat korelasi antara Kekuatan Karakter dengan DASS_21 dan GHQ_12 yang menunjukkan tren negatif, dan korelasi dengan SEC yang menunjukkan tren positif.<br /><br />
+            Diantara ke-24 Kekuatan Karakter yang memberikan koefisien terbesar adalah sebagai berikut:
+            """, unsafe_allow_html=True)
+
+via1, via2, via3, via4 = st.columns(4)
+via5, via6, via7, via8 = st.columns(4)
+with via1:
+    st. markdown("""
+                 <div style='text-align: center;'>
+                 <a href='https://viacharacter.org/character-strengths/zest'><img width=250 src='https://ramadani.my.id/capstone-tetris/img/zest.png'/></a>
+                 <p><i>"Antusiasme, menjalani hidup dengan penuh semangat dan mampu memberikan semangat ke orang lain"</i></p>
+                 </div>
+                 """, unsafe_allow_html=True)
+with via2:
+    st. markdown("""
+                 <div style='text-align: center;'>
+                 <a href='https://viacharacter.org/character-strengths/hope'><img width=250 src='https://ramadani.my.id/capstone-tetris/img/hope.png'/></a>
+                 <p><i>Optimisme, mengharapkan yang terbaik untuk masa depan, percaya akan diri sendiri atas segala tindakan dan semua akan berjalan dengan baik</i></p>
+                 </div>
+                 """, unsafe_allow_html=True)
+with via3:
+    st. markdown("""
+                 <div style='text-align: center;'>
+                 <a href='https://viacharacter.org/character-strengths/perseverance'><img width=250 src='https://ramadani.my.id/capstone-tetris/img/persev.png'/></a>
+                 <p><i>"Tetap bertahan untuk menuju tujuan meskipun aral melintang dan banyak halangan yang menghadang"</i></p>
+                 </div>
+                 """, unsafe_allow_html=True)
+with via4:
+    st. markdown("""
+                 <div style='text-align: center;'>
+                 <a href='https://viacharacter.org/character-strengths/gratitude'><img width=250 src='https://ramadani.my.id/capstone-tetris/img/grat.png'/></a>
+                 <p><i>"Bersyukur atas segala sesuatu dan menunjukkannya kepada orang lain"</i></p>
+                 </div>
+                 """, unsafe_allow_html=True)
+with via5:
+    st. markdown("""
+                 <div style='text-align: center;'>
+                 <a href='https://viacharacter.org/character-strengths/curiosity'><img width=250 src='https://ramadani.my.id/capstone-tetris/img/curio.png'/></a>
+                 <p><i>"Rasa penasaran untuk mendapatkan pengalaman baru tanpa menghalangi kepentingan diri dan orang lain saat ini"</i></p>
+                 </div>
+                 """, unsafe_allow_html=True)
+with via6:
+    st. markdown("""
+                 <div style='text-align: center;'>
+                 <a href='https://viacharacter.org/character-strengths/love'><img width=250 src='https://ramadani.my.id/capstone-tetris/img/love.png'/></a>
+                 <p><i>"Menjalani suatu hubungan yang hangat, peduli untuk saling memberi dan menerima satu sama lain"</i></p>
+                 </div>
+                 """, unsafe_allow_html=True)
+with via7:
+    st. markdown("""
+                 <div style='text-align: center;'>
+                 <a href='https://viacharacter.org/character-strengths/spirituality'><img width=250 src='https://ramadani.my.id/capstone-tetris/img/spirit.png'/></a>
+                 <p><i>"Merasakan dan memahami tujuan hidup sehari-hari, serta mampu melihat diri sendiri dalam skema besar dunia ini"</i></p>
+                 </div>
+                 """, unsafe_allow_html=True)
+with via8:
+    st. markdown("""
+                 <div style='text-align: center;'>
+                 <a href='https://viacharacter.org/character-strengths/self-regulation'><img width=250 src='https://ramadani.my.id/capstone-tetris/img/selfreg.png'/><a/>
+                 <p><i>"Mengatur perasaan, emosi, dan tindakan serta disiplin dan terkendali"<i/></p>
+                 </div>
+                 """, unsafe_allow_html=True)
+
 option, set1 = st.columns(2)
 visualization1, visualization2, visualization3 = st.columns(3)
 with option:
@@ -90,33 +157,6 @@ with option:
         "Pilih komponen",
         ('Appreciation_of_beauty', 'Bravery', 'Creativity', 'Curiosity', 'Fairness', 'Forgiveness', 'Gratitude', 'Honesty', 'Hope', 'Humilty', 'Humor', 'Judgment', 'Kindness', 'Leadership', 'Love', 'Love_of_learning', 'Perseverance', 'Perspective', 'Prudence', 'Self_regulation', 'Social_intelligence', 'Spirituality', 'Teamwork', 'Zest' ,'DASS_21', 'GHQ_12', 'SEC')
     )
-    
-    
-    # legend="""
-    # <style>
-    #     .dot {
-    #     height: 25px;
-    #     width: 25px;
-    #     border-radius: 50%;
-    #     display: inline-block;
-    #     margin: auto;
-    #     }
-    # </style>
-    # <div>
-    #     <span class="dot" style='background-color: blue'></span>DASS_21&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    #     <span class="dot" style='background-color: red'></span>GHQ_12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    #     <span class="dot" style='background-color: yellow'></span>SEC
-    # </div>
-    # """
-    # st.markdown(legend, unsafe_allow_html=True)
-
-# base = alt.Chart(df.reset_index()).encode(y=y_axis)
-
-# c = alt.layer(
-#     base.mark_point(color='blue').encode(x='DASS_21'),
-#     base.mark_circle(color='red').encode(x='GHQ_12'),
-#     base.mark_square(color='yellow').encode(x='SEC')
-# )
 
 with set1:
     st.write('Silahkan perhatikan koefisien korelasi dibawah ini')
@@ -149,13 +189,6 @@ with visualization3:
         use_container_width=False
     )
 
-st.subheader('Tabel Korelasi')
-dd = df.corr().loc[axis, ['DASS_21', 'GHQ_12', 'SEC']]
-st.table(dd)
-# st.write(
-#     'Diagram diatas memperlihatkan sebaran data antara Character Strength dalam VIA-IS-120 dengan parameter DASS_21 yang menunju'
-# )
-
 st.header('Summary')
 st.markdown(
             """
@@ -163,10 +196,10 @@ Kesimpulan yang dapat diambil dari diagram diatas adalah sebagai berikut:
 - Terdapat korelasi samar negatif antara tekanan psikologis yang dirasakan, psikologis kesehatan secara umum dengan Kekuatan Karakter pada saat pandemi. Semakin rendah tekanan psikologis dan psikologis kesehatan yang dirasakan, maka kekuatan karakter yang dimiliki akan semakin tinggi
 - Sedangkan korelasi samar positif muncul antara Efikasi Diri selama pandemi dengan kekuatan karakter secara umum. Semakin tinggi efikasi diri, maka semakin baik karakter yang dimiliki.
 -   Korelasi samar ini mengindikasikan bahwa tekanan psikologis, psikologis kesehatan secara umum, dan efikasi diri ini tidak memiliki pengaruh yang kuat terhadap perubahan Kekuatan Karakter.
+-   Zest, Hope, Perseverance, Gratitude, Curiosity, Love, Spirituality, dan Self Regulation merupakan karakter yang perlu dikembangkan lebih lanjut dalam menjalani masa pandemi ini.
 """)
 
-st.header('Jadi, bagaimana dengan kondisi di Indonesia pada khususnya?')
-st.write('Sejauh ini belum ada penelitian tentang hal ini.')
+
 
 # st.image('https://ramadani.my.id/capstone-tetris/footer.jpg')
 
